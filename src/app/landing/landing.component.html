@@ -1,0 +1,23 @@
+<div class="root">
+  <div class="header">
+    <img class="logo" src="../../assets/img/logo1.svg" alt="" />
+    <div class="profile">
+      <img class="user" src="../../assets/img/usericon.png" alt="" />
+      <span class="name">{{ username }}</span>
+      <div class="dropDown">
+        <div class="list-item" (click)="logout()"> Logout</div>
+        <div class="list-item" (click)="signout()">Signin with different account</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content_wrap">
+    <div class="header">Active Sessions</div>
+    <div class="listwrap">
+      <ul>
+        <li  *ngFor="let x of activeSessions" class="listitem">{{x.name}}  <span>&nbsp;</span> {{ x.lastFocus == 'Active' ? 'Active' : (currentTime - x.lastFocus)/1000 }}  {{ x.lastFocus == 'Active' ? '' : 'sec(s)'}} 
+          <span (click)="signoutSesion(x.name)">Logout Session</span> </li>
+      </ul>
+    </div>
+  </div>
+</div>
